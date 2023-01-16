@@ -1,0 +1,17 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+.venv/
+
+# Pipfile
+Pipfile
+Pipfile.lock
+
+# Folder for testing
+put_pdf_here/
+extracted_images/
+
+# Editors / IDEs
+.vscode/
