@@ -102,7 +102,7 @@ def readMetadataPdf(fileName, path=''):
 
     return meta
 
-def writeMetadataPdf(fileName, newMetadata, path=''):
+def writeMetadataPdf(fileName, newFilename, newMetaData:dict, path=''):
     file_path = f'{path}{fileName}'
 
     reader = PdfReader(file_path)
@@ -110,17 +110,24 @@ def writeMetadataPdf(fileName, newMetadata, path=''):
 
     for page in reader.pages:
         writer.add_page(page)
+    # Do not replace original metadata if not given newer
+    for key, value in newMetaData.items():
+        if value != None and value != "None":
+            meta_to_add = str(value)
+        else: # not give, use old meta
+            try:
+                meta_to_add = reader.metadata[f'/{key.capitalize()}']
+            except KeyError: # if old meta None, assign None
+                meta_to_add = "None"
 
-    # Add the metadata
-    writer.add_metadata(
-        {
-            "/Author": "Martin",
-            "/Producer": "Libre Writer",
-        }
-    )
+        # Add the metadata
+        writer.add_metadata(
+            {
+                f"/{key.capitalize()}": meta_to_add
+            }
+        )
 
-    # Save the new PDF to a file
-    with open("meta-pdf.pdf", "wb") as f:
+    with open(f"{path}{newFilename}", "wb") as f:
         writer.write(f)
 
 # def extractTextFromPdf():
