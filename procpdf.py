@@ -10,7 +10,7 @@ DEFAULT_PDF_DIR_NAME = 'put_pdf_here'
 DEFAULT_PDF_PATH = f'./{DEFAULT_PDF_DIR_NAME}/'
 TERMINAL_WIDTH = get_terminal_size().columns
 PROGRAM_NAME = 'procpdf'
-VERSION = '1.0.0'
+# VERSION = '1.0.0'
 # CONSTANTS END HERE
 
 # CLASS START HERE
@@ -42,8 +42,6 @@ def main():
     # create put_pdf_here if not exists
     if not(os.path.exists(DEFAULT_PDF_DIR_NAME)):
         os.mkdir(DEFAULT_PDF_DIR_NAME)
-
-    parser.add_argument('-v', '--version', action='version', version=f'%(prog)s {VERSION}', help='program version')
 
     listall = subparsers.add_parser('listall', help='list all pdf files detected', usage='%(prog)s [-e EXTENSION]')
     listall._positionals.title = 'Arguments'
