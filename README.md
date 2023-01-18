@@ -26,11 +26,11 @@ python procpdf.py <command> [option]
   ```
 
 - ```
-  encrypt FILENAME [-r]
+  encrypt FILENAME [-R/--remove]
   ```
 
 - ```
-  decrypt FILENAME [-r]
+  decrypt FILENAME [-R/--remove]
   ```
 
 - ```

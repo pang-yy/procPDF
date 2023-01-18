@@ -65,14 +65,14 @@ def main():
     encrypt._optionals.title = 'Command Options'
     encrypt.set_defaults(func=encryptFiles)
     encrypt.add_argument('filename', help='name of file to encrypt', metavar='FILENAME')
-    encrypt.add_argument('-r', '--remove', help='remove original file', action='store_true')
+    encrypt.add_argument('-R', '--remove', help='remove original file', action='store_true')
 
     decrypt = subparsers.add_parser('decrypt', help='decrypt an encrypted pdf file', usage='%(prog)s FILENAME [-r]')
     decrypt._positionals.title = 'Arguments'
     decrypt._optionals.title = 'Command Options'
     decrypt.set_defaults(func=decryptFiles)
     decrypt.add_argument('filename', help='name of file to decrypt', metavar='FILENAME')
-    decrypt.add_argument('-r', '--remove', help='remove original file', action='store_true')
+    decrypt.add_argument('-R', '--remove', help='remove original file', action='store_true')
     
     extractImg = subparsers.add_parser('extractImg', help='extract images in pdf file', usage='%(prog)s FILENAME')
     extractImg._positionals.title = 'Arguments'
