@@ -9,9 +9,10 @@ __pycache__/
 Pipfile
 Pipfile.lock
 
-# Folder for testing
+# Folder/file for testing
 put_pdf_here/
 extracted_images/
+*.txt
 
 # Editors / IDEs
 .vscode/
